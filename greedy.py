@@ -3,8 +3,6 @@ import time
 
 from board import Board
 
-START = time.time()
-
 class Greedy:
 
     def __init__(self):
@@ -19,20 +17,21 @@ class Greedy:
         self.visited = []
 
         self.nodes_explored = 0
+        self.start_time = 0
         self.solved = False
 
 
     def generate(self):
 
         '''User input for board size is validated whether it lies within bounds, 4x4 to
-        10x10; if not, the user is reprompted. After a legal input, a board instance is
+        8x8; if not, the user is reprompted. After a legal input, a board instance is
         generated with the inputted size and the successor function is called to look for
         a solution.
         '''
 
-        while self.b.size < 4 or self.b.size > 10:
+        while not 4 <= self.b.size <= 8:
 
-            print('\n-- Enter a dimension between 4 to 10 --\n')
+            print('\n-- Enter a dimension between 4 to 8 --\n')
             self.b.size = int(input('Enter board dimension (i.e. 4 for 4x4): '))
 
         # Creating a board instance with the inputted size
@@ -48,7 +47,7 @@ class Greedy:
         # If there was no goal state found
         if not self.solved:
 
-            end_time = time.time() - START
+            end_time = time.time() - self.start_time
             print(self.b.fail_message(self.nodes_explored, end_time))
 
 
@@ -73,6 +72,7 @@ class Greedy:
         # We do not want to run this recursively and append each board state twice.
         if self.nodes_explored == 0:
 
+            self.start_time = time.time()
             self.deq.append(board)
 
         # While there are successors in the queue
@@ -100,7 +100,7 @@ class Greedy:
                     # If the goal state is reached before the end of the deque
                     if self.goal_state(successor):
 
-                        end_time = time.time() - START
+                        end_time = time.time() - self.start_time
                         exit(self.b.goal_message(self.nodes_explored, end_time))
 
                     # Ensures the current successor's successors will be generated next.
@@ -110,12 +110,15 @@ class Greedy:
 
     def heuristic(self, successors):
 
-        '''Implements Manhatten distance in order to determine the most promising state
+        '''Implements Manhatten Distance in order to determine the most promising state
         in a list of successors.
 
-        The Manhatten distance of each successor state is determined by the sum of
-        each pegs' distance from the center of the board. After Manhatten distance is
+        The Manhatten Distance of each successor state is determined by the sum of
+        each pegs' distance from the center of the board. After Manhatten Distance is
         calculated, the successor states are sorted by least distance.
+
+        :param successors: The list of successors to be evaluated
+        :return: The list of sorted successors by Manhatten Distance
         '''
 
         # Obtaining the center coordinate of the board.
@@ -124,7 +127,7 @@ class Greedy:
         x_center = int((self.b.size - 1) / 2)
         y_center = int((self.b.size - 1) / 2)
 
-        new_list = []
+        temp_list = []
 
         for successor in successors:
 
@@ -139,11 +142,11 @@ class Greedy:
                         # Formula for Manhatten distance
                         distance += abs(curr_x - x_center) + abs(curr_y - y_center)
 
-            new_list.append([successor, distance])
+            temp_list.append([successor, distance])
 
         # Sort list by second element (i.e. distance)
-        new_list.sort(reverse=False, key=lambda successor: successor[1])
-        sorted_successors = [new_list[i][0] for i in range(len(new_list))]
+        temp_list.sort(reverse=False, key=lambda successor: successor[1])
+        sorted_successors = [temp_list[i][0] for i in range(len(temp_list))]
 
         return sorted_successors
 
