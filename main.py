@@ -43,8 +43,9 @@ def main():
 
     except IndexError:
 
-        print('''\n-- This program needs a command-line arguement to know which algorithm to run! --
-               -- Please see the README file for instructions. --\n''')
+        print('''
+- This program needs a command-line arguement to know which algorithm to run! --
+            -- Please see the README file for instructions. --\n''')
 
 
 if __name__ == '__main__':

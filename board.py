@@ -41,7 +41,7 @@ class Board:
 
         for i in range(self.size):
 
-            print(' '.join(board[i]))
+            print(''.join(board[i]))
 
 
     def goal_message(self, nodes_explored, time):
