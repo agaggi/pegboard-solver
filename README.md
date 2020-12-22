@@ -27,17 +27,17 @@ The following arguements are valid:
 
 Then, you will be asked to input an integer, representing the size of the pegboard to be generated. For example, inputting a 4 will generate a 4x4 pegboard. Afterwards, the chosen search algorithm will run.
 
-- Pegboard sizes **must** be greater than or equal to **4**, but less than or equal to **10**.
+- Pegboard sizes **must** be greater than or equal to **4**, but less than or equal to **8**.
 
 ## Solutions
 
+> Solution times for larger boards will vary greatly.
+
 ### Breadth First Search
 
-Breadth First Search took the longest to find a solution (if there was one), as it works its was down the fringe with no heuristic or path cost in mind. Running a size greater than **four** takes a considerable amount of time; I let a 5x5 board run for approximately **3 days**, and the program was still running; however, there could have been no solution just as well. Typically for 4x4 boards, if there was no solution, the algorithm explored **1686** or **2114** unique nodes; this was the same thoughout all search algorithms. If there was a solution to be found, typically there were two solutions at the same node depth.
+Breadth First Search took the longest to find a solution (if there was one), as it works its was down the fringe with no heuristic or path cost in mind. Running a size greater than **four** takes a considerable amount of time. I let a 5x5 board run for approximately **3 days**, and the program was still running; however, it was possible that there was no solution. Typically for 4x4 boards, if there was no solution, the algorithm explored **1686** or **2114** unique nodes; this was the same thoughout all search algorithms. If there was a solution to be found, it was found after **1869** unique nodes.
 
-- Solution times for larger boards will vary greatly.
-
-*4x4 - Example solution*
+*4x4 Pegboard - Example solutions*
 
 ```
 0010
@@ -64,9 +64,7 @@ Execution Time: 0.4429311752319336 seconds
 
 ### Depth First Search
 
-Depth First Search took a considerable amount of time less than Breadth First Search. The search algorithm is generally much more memory efficient, as you are very likely to find a solution without having to traverse throughout all branches like Breadth First Search. In some instances, the solution was found extremely fast. This held true for the larger pegboards as well.
-
-- Solution times for larger boards will vary greatly.
+Depth First Search took much less time than Breadth First Search. The search algorithm is generally much more memory efficient, as you are very likely to find a solution without having to traverse throughout all branches like Breadth First Search. In some instances, the solution was found extremely fast. This held true for the larger pegboards as well.
 
 *4x4 Pegboard - Example solution*
 
@@ -128,9 +126,7 @@ Execution Time: 8.628918170928955 seconds
 
 ### Greedy Best First Search
 
-Greedy Best First Search is essentially Depth First Search plus an admissible heuristic. This heuristic makes the search algorithm able to find the solution even **faster** in some instances, but a heuristic can be wrong and make it take much longer to find a solution. This was not particularly an issue with the 4x4 boards however. The admissible heuristic selected for this search algorithm was **Manhatten Distance**, which is the sum of all pegs'approximate distance from the center of the board.
-
-- Solution times for larger boards will vary greatly.
+Greedy Best First Search is Depth First Search with an admissible heuristic. This heuristic makes the search algorithm able to find the solution even **faster** in some instances, but a heuristic can be wrong and make it take much longer to find a solution. This was not particularly an issue with the 4x4 boards however. The admissible heuristic selected for this search algorithm was **Manhatten Distance**, which is the sum of all pegs' approximate distance from the center of the board.
 
 *4x4 Pegboard - Example solutions*
 
@@ -189,9 +185,7 @@ Execution Time: 0.17257356643676758 seconds
 
 ### A* Search
 
-A* Search makes use of an admissible heuristic, such as Manhatten Distance, as well as a method to determine the path cost. This path cost method keeps track of how far the current state is from the initial state. Pairing these two methods results in a much more efficient selection process. Typically, A* runs like Greedy Best First Search for 4x4 boards as there is not as much path cost to consider; however, in larger boards, the path cost implementation becomes more relevant.
-
-- Solution times for larger boards will vary greatly.
+A* Search makes use of an admissible heuristic, such as **Manhatten Distance**, as well as a method to determine the **path cost**. This path cost method keeps track of how far the current state is from the initial state. Pairing these two methods results in finding the optimal solution. Typically, A* runs like Greedy Best First Search for 4x4 boards as there is not as much path cost to consider; however, in larger boards, the path cost implementation becomes more relevant.
 
 *4x4 Pegboard - Example solutions*
 

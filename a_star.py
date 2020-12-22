@@ -143,7 +143,7 @@ class A_Star:
             path_cost = self.path_cost(successor)
             temp_list.append([successor, distance + path_cost])
 
-        # Sort list by second element (i.e. distance)
+        # Sort list by second element (i.e. distance + path cost)
         temp_list.sort(reverse=False, key=lambda successor: successor[1])
         sorted_successors = [temp_list[i][0] for i in range(len(temp_list))]
 
