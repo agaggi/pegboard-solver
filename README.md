@@ -1,4 +1,4 @@
-# CS580 Assignment 1
+# Solving Pegboards via Search Algorithms
 
 ## Program Requirements
 
@@ -16,9 +16,9 @@ python3 main.py [search algorithm]
 py .\main.py [search algorithm]
 ```
 
-The following arguements are valid:
+The following arguments are valid:
 
-| Arguement      | Search Algorithm    
+| Argument       | Search Algorithm    
 | :------------: | :-----------: 
 | `breadth`      | Breadth First Search   
 | `depth`        | Depth First Search
