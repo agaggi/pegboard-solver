@@ -157,6 +157,9 @@ class Greedy:
 
         The board is scanned for the amount of pegs left. If there is 1 piece remaining,
         the goal state has been reached.
+
+        :param board: The board state to be checked
+        :return: Whether a solution has been found or not
         '''
 
         num_pegs = 0

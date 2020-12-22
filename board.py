@@ -25,7 +25,7 @@ class Board:
         self.board = [['1' for _ in range(self.size)] for _ in range(self.size)]
 
         # Assigning a 0 to a random index
-        self.board[random.randint(0, self.size - 1)]\
+        self.board[random.randint(0, self.size - 1)] \
                   [random.randint(0, self.size - 1)] = '0'
 
 

@@ -18,16 +18,10 @@ def main():
 
         elif sys.argv[1].lower() == 'depth':
 
-            # Need because the successor function is recursively called
-            sys.setrecursionlimit(10**8)
-
             depth = Depth()
             depth.generate()
 
         elif sys.argv[1].lower() == 'greedy':
-
-            # Need because the successor function is recursively called
-            sys.setrecursionlimit(10**8)
 
             greedy = Greedy()
             greedy.generate()
@@ -44,7 +38,7 @@ def main():
     except IndexError:
 
         print('''
-- This program needs a command-line arguement to know which algorithm to run! --
+-- This program needs a command-line arguement to know which algorithm to run! --
             -- Please see the README file for instructions. --\n''')
 
 
