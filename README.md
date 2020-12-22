@@ -49,17 +49,6 @@ Breadth First Search took the longest to find a solution (if there was one), as 
                         
 Unique nodes visited: 1869
 Execution Time: 0.44266295433044434 seconds
-
-
-0000
-0000
-0000
-0010
-
--- Goal state found! --
-                        
-Unique nodes visited: 1870
-Execution Time: 0.4429311752319336 seconds
 ```
 
 ### Depth First Search
