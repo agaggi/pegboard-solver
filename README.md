@@ -37,7 +37,7 @@ Then, you will be asked to input an integer, representing the size of the pegboa
 
 Breadth First Search took the longest to find a solution (if there was one), as it works its was down the fringe with no heuristic or path cost in mind. Running a size greater than **four** takes a considerable amount of time. I let a 5x5 board run for approximately **3 days**, and the program was still running; however, it was possible that there was no solution. Typically for 4x4 boards, if there was no solution, the algorithm explored **1686** or **2114** unique nodes; this was the same thoughout all search algorithms. If there was a solution to be found, it was found after **1869** unique nodes.
 
-*4x4 Pegboard - Example solutions*
+*4x4 Pegboard - Example solution*
 
 ```
 0010
